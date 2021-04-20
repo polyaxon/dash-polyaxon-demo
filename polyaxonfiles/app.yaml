@@ -1,0 +1,14 @@
+version: 1.1
+kind: component
+name: plotly-dash-app
+tags: [plotly, dash]
+run:
+  kind: service
+  ports: [8050]
+  container:
+    image: polyaxon/polyaxon-examples:dash-demo
+    command: [python, app.py]
+    env:
+    - name: BASE_URL
+      value: "{{globals.base_url}}"
+
